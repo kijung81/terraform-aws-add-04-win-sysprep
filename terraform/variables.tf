@@ -17,7 +17,8 @@ variable ec2_key{
 }
 
 variable host_name {
-  default = "tf-poc-winhost"
+  # default = "tf-poc-winhost"
+  default = "tf-poc-winhost3"  
 }
 
 variable admin_password {
@@ -33,7 +34,8 @@ variable domain {
 }
 
 variable ad_username {
-  default = "gzpoc.corp\\connector2"
+  # default = "gzpoc.corp\\connector2"
+  default = "gzpoc.corp\\connector3"  
 }
 
 variable ad_password {

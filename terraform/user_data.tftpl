@@ -1,0 +1,28 @@
+<powershell>
+# 어드민 패스워드 변경
+net user Administrator  "${admin_password}"
+wmic useraccount where "name='Administrator'" set PasswordExpires=FALSE
+
+# AD join을 위한 dns 서버 변경
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex -ServerAddresses ${ad_dns}
+
+# AD join을 위한 환경변수 세팅
+$ad_password = "${ad_password}" |ConvertTo-SecureString -asPlainText -Force
+
+$admin_password = "${admin_password}" |ConvertTo-SecureString -asPlainText -Force
+$lcred = New-object -TypeName System.Management.Automation.PSCredential -ArgumentList ("Administrator", $admin_password)
+
+$credential = New-object -TypeName System.Management.Automation.PSCredential -ArgumentList ("${ad_username}", $ad_password)
+
+# AD 조인 후 컴퓨터 네임 변경
+Add-Computer -DomainName "${domain}" -Credential $credential -LocalCredential $lcred  -NewName "${host_name}" -Force
+
+Rename-Computer -NewName "${host_name}" -Force
+
+# Remote user 그룹 추가
+Add-LocalGroupMember -Group "Remote Desktop Users" -member "${ad_username}"
+
+# 재기동
+Restart-Computer -Force
+</powershell>
+<persistent>true</persistent>

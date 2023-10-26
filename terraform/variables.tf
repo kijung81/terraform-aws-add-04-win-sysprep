@@ -35,7 +35,7 @@ variable domain {
 
 variable ad_username {
   # default = "gzpoc.corp\\connector2"
-  default = "gzpoc.corp\\connector3"  
+  default = "gzpoc.corp\\connector3"  # TFC workspace variables 에서 입력시  escape문자 필요없음 -> "gzpoc.corp\connector3"
 }
 
 variable ad_password {

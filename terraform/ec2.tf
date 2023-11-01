@@ -9,8 +9,8 @@ data "aws_ami" "window" {
   #most_recent = true
 
   filter {
-    name   = "image_id"
-    values = ["ami-0efa0ff5d179403bb"]
+    name   = "name"
+    values = ["Golfzon-PoC-packer-win-aws-init-focal-20231101052719"]
   }
 
   filter {

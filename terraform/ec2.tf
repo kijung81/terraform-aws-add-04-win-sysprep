@@ -19,7 +19,7 @@ data "aws_ami" "window" {
     values = ["hvm"]
   }
 
-  owners = ["964211771378"] # my accont id
+  owners = ["099984158942"] # my accont id
 }
 
 resource "aws_instance" "win" {

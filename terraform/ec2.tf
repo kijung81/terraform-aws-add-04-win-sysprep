@@ -10,7 +10,7 @@ data "aws_ami" "window" {
 
   filter {
     name   = "name"
-    values = ["Golfzon-PoC-packer-win-aws-init-focal-20231101052719"]
+    values = ["GZ-U2GAME01-AMI-Final-20230616"]
   }
 
   filter {
@@ -18,7 +18,7 @@ data "aws_ami" "window" {
     values = ["hvm"]
   }
 
-  owners = ["099984158942"] # my accont id
+  owners = ["964211771378"] # my accont id
 }
 
 resource "aws_instance" "win" {

@@ -21,6 +21,11 @@ variable host_name {
   default = "tf-poc-winhost3"  
 }
 
+variable host_name2 {
+  # default = "tf-poc-winhost"
+  default = "tf-poc-winhost2"  
+}
+
 variable admin_password {
   default = "golfzonaws1!"
 }

@@ -10,7 +10,8 @@ data "aws_ami" "window" {
 
   filter {
     name   = "name"
-    values = ["GZ-U2GAME01-AMI-Final-20230616"]
+    # values = ["GZ-U2GAME01-AMI-Final-20230616"]
+    values = ["Golfzon-PoC-packer-win-aws-init-focal-20231101052719"]
   }
 
   filter {

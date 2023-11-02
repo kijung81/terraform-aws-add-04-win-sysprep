@@ -44,7 +44,7 @@ resource "aws_instance" "win" {
 }
 
 resource "aws_instance" "win2" {
-  ami           = data.aws_ami.window.id
+  ami           = "ami-0985ad1d0e6eeffe1" # other account 
   instance_type = "t3.small"
   subnet_id     = data.aws_subnet.default.id
   vpc_security_group_ids = [aws_security_group.win.id]

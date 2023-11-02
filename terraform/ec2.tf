@@ -23,7 +23,8 @@ data "aws_ami" "window" {
 }
 
 resource "aws_instance" "win" {
-  ami           = data.aws_ami.window.id
+  # ami           = "ami-0985ad1d0e6eeffe1" # other account 
+  ami           = "ami-0efa0ff5d179403bb" # packer ami
   instance_type = "t3.small"
   subnet_id     = data.aws_subnet.default.id
   vpc_security_group_ids = [aws_security_group.win.id]

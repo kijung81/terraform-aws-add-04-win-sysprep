@@ -18,12 +18,12 @@ variable ec2_key{
 
 variable host_name {
   # default = "tf-poc-winhost"
-  default = "tf-poc-winhost3"  
+  default = "hello-host1"  
 }
 
 variable host_name2 {
-  # default = "tf-poc-winhost"
-  default = "tf-poc-winhost2"  
+  # deVuWEfault = "tf-poc-winhost"
+  default = "hello-host2"  
 }
 
 variable admin_password {

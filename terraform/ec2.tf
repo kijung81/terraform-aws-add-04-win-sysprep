@@ -23,8 +23,8 @@ data "aws_ami" "window" {
 }
 
 resource "aws_instance" "win" {
-  # ami           = "ami-0985ad1d0e6eeffe1" # other account 
-  ami           = "ami-0efa0ff5d179403bb" # packer ami
+  ami           = "ami-0985ad1d0e6eeffe1" # other account 
+  #ami           = "ami-0efa0ff5d179403bb" # packer ami
   instance_type = "t3.small"
   subnet_id     = data.aws_subnet.default.id
   vpc_security_group_ids = [aws_security_group.win.id]
@@ -51,7 +51,7 @@ resource "aws_instance" "win2" {
   associate_public_ip_address = true
   # key_name      = var.ec2_key
   tags = {
-    Name = "${var.prefix}-windows"
+    Name = "${var.prefix}-windows2"
   }
   user_data = templatefile("${path.module}/user_data.tftpl", { 
     admin_password = var.admin_password,

@@ -22,7 +22,7 @@ variable host_name {
 }
 
 variable host_name2 {
-  # deVuWEfault = "tf-poc-winhost"
+  # default = "tf-poc-winhost"
   default = "hello-host2"  
 }
 

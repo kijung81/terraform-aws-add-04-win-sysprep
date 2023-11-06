@@ -17,13 +17,8 @@ variable ec2_key{
 }
 
 variable host_name {
-  # default = "tf-poc-winhost"
-  default = "customerhost1"
-}
-
-variable host_name2 {
-  # default = "tf-poc-winhost"
-  default = "customerhost2"
+  type = list(string)
+  default = ["customerhost1", "customerhost2"]
 }
 
 variable admin_password {

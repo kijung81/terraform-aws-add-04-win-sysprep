@@ -11,7 +11,7 @@ data "aws_ami" "window" {
   filter {
     name   = "name"
     # values = ["GZ-U2GAME01-AMI-Final-20230616"]
-    values = ["Golfzon-PoC-packer-win-aws-init-focal-20231101052719"]
+    values = ["Golfzon-PoC-packer-win-aws-init-focal-*"]
   }
 
   filter {
@@ -24,8 +24,8 @@ data "aws_ami" "window" {
 
 resource "aws_instance" "win" {
   count         = length(var.host_name)
-  ami           = "ami-09493d418f1ae1797" # manual ami
-#  ami           = data.aws_ami.window.id
+  # ami           = "ami-09493d418f1ae1797" # manual ami
+ ami           = data.aws_ami.window.id
   instance_type = "t3.small"
   subnet_id     = data.aws_subnet.default.id
   vpc_security_group_ids = [aws_security_group.win.id]

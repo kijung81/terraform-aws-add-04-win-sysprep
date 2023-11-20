@@ -6,7 +6,7 @@ data "aws_subnet" "default" {
 }
 
 data "aws_ami" "window" {
-  #most_recent = true
+  most_recent = true
 
   filter {
     name   = "name"
